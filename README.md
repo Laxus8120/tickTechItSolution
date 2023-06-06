@@ -16,6 +16,36 @@ The application uses the `uuid` library to generate unique identifiers for each 
 
 The application also uses the `body-parser` library to parse JSON request bodies, and the `dotenv` library to load environment variables from a `.env` file.
 
+## How, to make req in aws instance 
+
+> ***NOTE:*** First copy the public url and paste it in your browser and then make req.
+
+* To `create` a new user, you need to send a `POST` request to the /users endpoint with the required data in the request body.
+```js
+curl -X POST -H "Content-Type: application/json" -d '{"username":"john", "age":25, "hobbies":["reading", "gaming"]}' http://<your-public-ip>:3005/users
+```
+
+* To `retrieve all users`, you need to send a `GET` request to the /users endpoint.
+```js
+curl -X GET http://<your-public-ip>:3005/users
+```
+
+* To `retrieve a specific user by ID`, you need to send a `GET` request to the /users/:id endpoint, replacing :id with the actual ID of the user.
+```js
+curl -X GET http://<your-public-ip>:<userId>
+```
+
+* To `update an existing user`, you need to send a `PUT` request to the /users/:id endpoint, replacing :id with the actual ID of the user.
+```js
+curl -X PUT -H "Content-Type: application/json" -d '{"username":"new_username", "age":30, "hobbies":["running", "swimming"]}' http://<your-public-ip>:3005/users/<user-id>
+```
+
+* To `delete` a user, you need to send a `DELETE` request to the /users/:id endpoint, replacing :id with the actual ID of the user.
+```js
+curl -X DELETE http://<your-public-ip>:3005/users/<user-id>
+```
+> Replace `<your-public-ip>` with the actual public IP address of your AWS instance. `<user-id>` should be replaced with the ID of the user you want to retrieve, update, or delete.
+
 ## Setup
 
 To set up the project, follow these steps:
