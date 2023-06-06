@@ -13,6 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 const Users = [];
+// checking the deployment 
+app.get('/api',(req,res) =>{
+    return res.json({message : ' route working in aws ' })
+});
 
 // todo : Creating new Users
 app.post('/users', (req, res) => {
